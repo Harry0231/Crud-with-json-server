@@ -29,6 +29,7 @@ function App() {
   const [openDialog, setOpenDialog] = useState(false);
   const [deleteDialogOpen, setDeleteDialogOpen] = useState(false);
   const [deleteRecordId, setDeleteRecordId] = useState(null);
+  const [resetKey, setResetKey] = useState(0);
 
   useEffect(() => {
     axios
@@ -141,22 +142,17 @@ function App() {
       </div>
       <div style={{ height: 400, width: "100%" }}>
         <DataGrid
+          key={resetKey}
           rows={filteredRecords}
           columns={columns}
           pageSize={7}
           pageSizeOptions={[5, 10, 25, 50, 100]}
           components={{
-            Toolbar: CustomToolbar,
-          }}
-          componentsProps={{
-            toolbar: {
-              columnsButton: {
-                ToolbarButton: CustomColumnsButton,
-              },
-              densitySelector: {
-                ToolbarButton: CustomDensitySelector,
-              },
-            },
+            Toolbar: () => (
+              <CustomToolbar
+                onResetSorting={() => setResetKey((prevKey) => prevKey + 1)}
+              />
+            ),
           }}
         />
       </div>
@@ -204,24 +200,17 @@ function App() {
 }
 
 // CustomToolbar component for the DataGrid
-function CustomToolbar() {
+function CustomToolbar({ onResetSorting }) {
   return (
     <GridToolbarContainer>
       <GridToolbarColumnsButton />
       <GridToolbarFilterButton />
       <GridToolbarDensitySelector />
+      <Button onClick={onResetSorting} color="primary">
+        Reset Sorting
+      </Button>
     </GridToolbarContainer>
   );
-}
-
-// CustomColumnsButton component
-function CustomColumnsButton() {
-  return <GridToolbarColumnsButton />;
-}
-
-// CustomDensitySelector component
-function CustomDensitySelector() {
-  return <GridToolbarDensitySelector />;
 }
 
 export default App;
