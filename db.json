@@ -1,21 +1,6 @@
 {
   "users": [
     {
-      "name": "aa",
-      "email": "haranarayan@drevol.com",
-      "id": 2
-    },
-    {
-      "name": "s",
-      "email": "haranarayan@drevol.com",
-      "id": 3
-    },
-    {
-      "name": "www",
-      "email": "xys@gmail.com",
-      "id": 4
-    },
-    {
       "name": "ddddddddd",
       "email": "harry22@gmail.com",
       "id": 5
@@ -26,14 +11,21 @@
       "id": 6
     },
     {
-      "name": "ddddddddddddddddddddd",
-      "email": "xys@gmail.com",
+      "name": "aop",
+      "email": "admin@gmail.com",
       "id": 7
-    },
+    }
+  ],
+  "user": [
     {
-      "name": "qw",
-      "email": "harryrajput0225@gmail.com",
-      "id": 8
+      "id": "Harry",
+      "name": "Harry Rajput",
+      "password": "12345",
+      "email": "harry22@gmail.com",
+      "phone": "8967587989",
+      "country": "india",
+      "address": "vadodara",
+      "gender": "male"
     }
   ]
 }
