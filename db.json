@@ -18,13 +18,22 @@
   ],
   "user": [
     {
+      "id": "Gautam",
+      "name": "Gautam Sharma",
+      "password": "g12345",
+      "email": "g@gmail.com",
+      "phone": "+918949470433",
+      "address": "Nagada",
+      "gender": "male"
+    },
+
+    {
       "id": "Harry",
-      "name": "Harry Rajput",
+      "name": "Haranarayan Singh",
       "password": "12345",
-      "email": "harry22@gmail.com",
-      "phone": "8967587989",
-      "country": "india",
-      "address": "vadodara",
+      "email": "harryrajput0225@gmail.com",
+      "phone": "+919001434360",
+      "address": "Vadodara",
       "gender": "male"
     }
   ]

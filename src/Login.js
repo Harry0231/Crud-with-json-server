@@ -24,7 +24,6 @@ const Login = () => {
     e.preventDefault();
     if (validate()) {
       setLoading(true);
-      // Implementation
       fetch("http://localhost:3001/user/" + username)
         .then((res) => res.json())
         .then((resp) => {
@@ -32,9 +31,9 @@ const Login = () => {
             toast.error("Please enter a valid username");
           } else {
             if (resp.password === password) {
-              toast.success("Login successful");
+              toast.success(`${username} Login successful`);
               sessionStorage.setItem("username", username);
-              sessionStorage.setItem("userrole", resp.role);
+              // sessionStorage.setItem("userrole", resp.role);
               navigate("/");
             } else {
               toast.error("Invalid credentials");
@@ -60,12 +59,14 @@ const Login = () => {
       result = false;
       toast.warning("Please enter a password");
     }
-    // Additional validation logic if needed
     return result;
   };
 
   return (
-    <div className="row" style={{ display: "flex", justifyContent: "center" }}>
+    <div
+      className="row"
+      style={{ display: "flex", justifyContent: "center", marginTop: "150px" }}
+    >
       <div className="col-lg-6" style={{ marginTop: "100px" }}>
         <form onSubmit={proceedLogin} className="container">
           <Card>

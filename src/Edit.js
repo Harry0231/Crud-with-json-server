@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import Box from "@mui/material/Box";
-import { Link, useNavigate, useParams } from "react-router-dom"; // Ensure useNavigate is imported correctly
+import { Link, useNavigate, useParams } from "react-router-dom"; 
 import axios from "axios";
 import { toast } from "react-toastify";
 
@@ -42,7 +42,7 @@ const Edit = () => {
           variant="outlined"
           value={data.id}
           InputLabelProps={{
-            shrink: !!data.id, // Only shrink if there's a value
+            shrink: !!data.id, 
           }}
           disabled
         />
@@ -54,7 +54,7 @@ const Edit = () => {
           value={data.name}
           onChange={(e) => setData({ ...data, name: e.target.value })}
           InputLabelProps={{
-            shrink: !!data.name, // Only shrink if there's a value
+            shrink: !!data.name, 
           }}
         />
         <TextField
@@ -66,7 +66,7 @@ const Edit = () => {
           value={data.email}
           onChange={(e) => setData({ ...data, email: e.target.value })}
           InputLabelProps={{
-            shrink: !!data.email, // Only shrink if there's a value
+            shrink: !!data.email, 
           }}
         />
         <Button type="submit" variant="contained" color="primary" mt={2}>

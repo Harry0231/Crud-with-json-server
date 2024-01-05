@@ -6,6 +6,7 @@ import Edit from "./Edit";
 import Login from "./Login";
 import Register from "./Register";
 import { ToastContainer } from "react-toastify";
+import Profile from "./Profile";
 import "./App.css";
 
 import Appheader from "./Appheader";
@@ -22,6 +23,7 @@ const AppRouter = () => {
           <Route path="/update/:id" element={<Edit />} />
           <Route path="/login" element={<Login />}></Route>
           <Route path="/register" element={<Register />}></Route>
+          <Route path="/profile" element={<Profile />} />
         </Routes>
       </BrowserRouter>
     </div>
