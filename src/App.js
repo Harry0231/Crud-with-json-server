@@ -16,6 +16,7 @@ import {
   GridToolbarColumnsButton,
   GridToolbarFilterButton,
   GridToolbarDensitySelector,
+  GridToolbarExport,
 } from "@mui/x-data-grid";
 import DeleteIcon from "@mui/icons-material/Delete";
 import InfoIcon from "@mui/icons-material/Info";
@@ -126,19 +127,10 @@ function App() {
   return (
     <div className="container mt-5">
       <ToastContainer />
-      <div className="text-start">
+      <div className="text-start m-4">
         <Link to="/create" className="btn btn-success">
           Add +
         </Link>
-        <div className="text-center mb-3">
-          <TextField
-            label="Search"
-            variant="outlined"
-            margin="normal"
-            value={searchTerm}
-            onChange={handleSearch}
-          />
-        </div>
       </div>
       <div style={{ height: 400, width: "100%" }}>
         <DataGrid
@@ -149,9 +141,19 @@ function App() {
           pageSizeOptions={[5, 10, 25, 50, 100]}
           components={{
             Toolbar: () => (
-              <CustomToolbar
-                onResetSorting={() => setResetKey((prevKey) => prevKey + 1)}
-              />
+              <div style={{ display: "flex", alignItems: "center" }}>
+                <CustomToolbar
+                  onResetSorting={() => setResetKey((prevKey) => prevKey + 1)}
+                />
+                <TextField
+                  label="Search"
+                  variant="outlined"
+                  margin="normal"
+                  value={searchTerm}
+                  onChange={handleSearch}
+                  style={{ marginLeft: "44%" }}
+                />
+              </div>
             ),
           }}
         />
@@ -205,9 +207,10 @@ function CustomToolbar({ onResetSorting }) {
     <GridToolbarContainer>
       <GridToolbarColumnsButton />
       <GridToolbarFilterButton />
+      <GridToolbarExport />
       <GridToolbarDensitySelector />
       <Button onClick={onResetSorting} color="primary">
-        Reset Sorting
+        Reset
       </Button>
     </GridToolbarContainer>
   );

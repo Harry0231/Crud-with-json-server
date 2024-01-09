@@ -14,15 +14,15 @@ import {
   Tooltip,
 } from "@mui/material";
 import AdbIcon from "@mui/icons-material/Adb";
-import LogoutIcon from '@mui/icons-material/Logout';
-import PersonIcon from '@mui/icons-material/Person';
+import LogoutIcon from "@mui/icons-material/Logout";
+import PersonIcon from "@mui/icons-material/Person";
 import { toast } from "react-toastify";
 
 function AppHeader() {
   const [anchorElUser, setAnchorElUser] = useState(null);
   const [displayUsername, setDisplayUsername] = useState("");
   const [showMenu, setShowMenu] = useState(false);
-  
+
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -62,7 +62,7 @@ function AppHeader() {
   const handleProfile = () => {
     navigate("/profile");
     handleClose();
-  }
+  };
 
   return (
     <div>
@@ -89,13 +89,20 @@ function AppHeader() {
               <Link
                 to={"/"}
                 style={{
-                  textDecoration: "none",
-                  color: "inherit",
-                  marginRight: "100px",
+                  marginRight: "30px",
                 }}
                 onClick={(event) => handleMenuOpen(event)}
               >
                 <Typography variant="h6">Home</Typography>
+              </Link>
+
+              <Link
+                to={"/create"}
+                style={{
+                  marginRight: "30px",
+                }}
+              >
+                <Typography variant="h6">Add-Data</Typography>
               </Link>
 
               <Box sx={{ flexGrow: 0 }}>
