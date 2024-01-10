@@ -26,7 +26,6 @@
       "address": "Nagada",
       "gender": "male"
     },
-
     {
       "id": "Harry",
       "name": "Haranarayan Singh",
@@ -34,6 +33,15 @@
       "email": "harryrajput0225@gmail.com",
       "phone": "+919001434360",
       "address": "Vadodara",
+      "gender": "male"
+    },
+    {
+      "id": "hs",
+      "name": "Haranarayan Singh",
+      "password": "12345",
+      "email": "harryrajput0225@gmail.com",
+      "phone": "+919001434360",
+      "address": "BRC",
       "gender": "male"
     }
   ]
