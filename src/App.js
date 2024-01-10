@@ -3,11 +3,11 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import Dialog from "@mui/material/Dialog";
 import DialogTitle from "@mui/material/DialogTitle";
 import DialogContent from "@mui/material/DialogContent";
+import RefreshIcon from "@mui/icons-material/Refresh";
 import DialogContentText from "@mui/material/DialogContentText";
 import DialogActions from "@mui/material/DialogActions";
 import {
@@ -25,7 +25,6 @@ import EditIcon from "@mui/icons-material/Edit";
 function App() {
   const [columns, setColumns] = useState([]);
   const [records, setRecords] = useState([]);
-  const [searchTerm, setSearchTerm] = useState("");
   const [selectedRecord, setSelectedRecord] = useState(null);
   const [openDialog, setOpenDialog] = useState(false);
   const [deleteDialogOpen, setDeleteDialogOpen] = useState(false);
@@ -76,10 +75,6 @@ function App() {
       });
   }, []);
 
-  const handleSearch = (e) => {
-    setSearchTerm(e.target.value);
-  };
-
   const handleViewDetails = (record) => {
     setSelectedRecord(record);
     setOpenDialog(true);
@@ -118,12 +113,6 @@ function App() {
     }
   };
 
-  const filteredRecords = records.filter(
-    (record) =>
-      record.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      record.email.toLowerCase().includes(searchTerm.toLowerCase())
-  );
-
   return (
     <div className="container mt-5">
       <ToastContainer />
@@ -135,7 +124,7 @@ function App() {
       <div style={{ height: 400, width: "100%" }}>
         <DataGrid
           key={resetKey}
-          rows={filteredRecords}
+          rows={records}
           columns={columns}
           pageSize={7}
           pageSizeOptions={[5, 10, 25, 50, 100]}
@@ -144,14 +133,6 @@ function App() {
               <div style={{ display: "flex", alignItems: "center" }}>
                 <CustomToolbar
                   onResetSorting={() => setResetKey((prevKey) => prevKey + 1)}
-                />
-                <TextField
-                  label="Search"
-                  variant="outlined"
-                  margin="normal"
-                  value={searchTerm}
-                  onChange={handleSearch}
-                  style={{ marginLeft: "44%" }}
                 />
               </div>
             ),
@@ -209,7 +190,16 @@ function CustomToolbar({ onResetSorting }) {
       <GridToolbarFilterButton />
       <GridToolbarExport />
       <GridToolbarDensitySelector />
-      <Button onClick={onResetSorting} color="primary">
+      <Button
+        onClick={onResetSorting}
+        color="primary"
+        startIcon={<RefreshIcon />}
+        style={{
+          fontWeight: "bold",
+          marginLeft: "241%",
+          marginTop: "-10%",
+        }}
+      >
         Reset
       </Button>
     </GridToolbarContainer>

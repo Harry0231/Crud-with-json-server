@@ -21,7 +21,7 @@ const Register = () => {
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [address, setAddress] = useState("");
-  const [gender, setGender] = useState("female");
+  const [gender, setGender] = useState("");
 
   const navigate = useNavigate();
 
