@@ -112,8 +112,8 @@ function AppHeader() {
                     sx={{ p: 0 }}
                   >
                     <Avatar
+                      src={`https://ui-avatars.com/api/?name=${encodeURIComponent(displayUsername)}&size=40`}
                       alt="User Avatar"
-                      src="/static/images/avatar/2.jpg"
                     />
                   </IconButton>
                 </Tooltip>
